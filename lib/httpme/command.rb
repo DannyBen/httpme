@@ -5,7 +5,8 @@ module HTTPMe
   class Command < MisterBin::Command
     include Colsole
 
-    summary "Start the web server"
+    summary "httpme - static web server with basic authentication"
+
     help "Options can be set using command line arguments or environment variables"
 
     usage "httpme [PATH] [--port PORT --host HOST --auth AUTH]"

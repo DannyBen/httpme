@@ -1,4 +1,4 @@
-Start the web server
+httpme - static web server with basic authentication
 
 Options can be set using command line arguments or environment variables
 
