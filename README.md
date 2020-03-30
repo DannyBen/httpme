@@ -17,6 +17,8 @@ Static files web server with basic authentication.
 
 
 ```shell
+$ httpme --help
+
 httpme - static web server with basic authentication
 
 Options can be set using command line arguments or environment variables
