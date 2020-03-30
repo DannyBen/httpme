@@ -16,7 +16,7 @@ Static files web server with basic authentication.
 ## Usage
 
 
-```shell
+```
 $ httpme --help
 
 httpme - static web server with basic authentication
