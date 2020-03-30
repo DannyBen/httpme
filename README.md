@@ -15,6 +15,37 @@ with optional basic authentication support.
 
     $ gem install httpme
 
+## Docker
+
+Start the web server and mount the current directory:
+
+```shell
+$ docker run --rm -it -p 3000:3000 -v $PWD:/docroot dannyben/httpme
+```
+
+Or, with basic authentication
+
+```shell
+$ export HTTPME_AUTH=user:password
+$ docker run --rm -it -p 3000:3000 -v $PWD:/docroot \
+    -e HTTPME_AUTH dannyben/httpme
+```
+
+Or, with docker-compose:
+
+```yaml
+version: '3'
+
+services:
+  web:
+    build: .
+    image: dannyben/httpme
+    volumes: [".:/docroot"]
+    ports: ["3000:3000"]
+    environment:
+      HTTPME_AUTH:
+```
+
 ## Usage
 
 

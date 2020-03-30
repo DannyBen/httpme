@@ -1,0 +1,4 @@
+FROM dannyben/alpine-ruby:ruby2.6.5
+RUN gem install httpme --version 0.1.0
+WORKDIR /docroot
+ENTRYPOINT ["httpme"]
