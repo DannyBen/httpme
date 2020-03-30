@@ -96,3 +96,12 @@ Examples:
   HTTPME_AUTH=admin:s3cr3t httpme docs  # same result as above
 ```
 
+Contributing / Support
+--------------------------------------------------
+
+If you experience any issue, have a question or a suggestion, or if you wish
+to contribute, feel free to [open an issue][issues].
+
+---
+
+[issues]: https://github.com/DannyBen/httpme/issues
