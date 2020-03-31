@@ -23,6 +23,12 @@ describe Server do
       expect(last_response.body).to match /<h1>Success/
     end
 
+    it "serves nested index.html files" do
+      get '/subdir/'
+      expect(last_response).to be_ok
+      expect(last_response.body).to match /<h1>Nested file also works/
+    end
+
     context "with auth parameter" do
       let(:options) { { path: path, auth: 'admin:s3cr3t' } }
 
