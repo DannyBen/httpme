@@ -55,7 +55,7 @@ describe Command do
 
   context "with --help" do
     it "shows long usage" do
-      expect { subject.run %w[--help] }.to output_fixture('command/help')
+      expect { subject.run %w[--help] }.to output_approval('command/help')
     end
   end
 end

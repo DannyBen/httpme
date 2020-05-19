@@ -22,6 +22,5 @@ module RSpecMixin
 end
 
 RSpec.configure do |c|
-  c.fixtures_path = 'spec/approvals'
   c.include RSpecMixin
 end
