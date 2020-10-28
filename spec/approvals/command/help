@@ -25,18 +25,18 @@ Parameters:
 
 Environment Variables:
   HTTPME_PATH
-    Same as --path
+    Same as the PATH argument
 
   HTTPME_AUTH
-    Same as --auth
+    Same as the --auth option
 
   HTTPME_PORT
-    Same as --port
+    Same as the --port option
 
   HTTPME_HOST
-    Same as --host
+    Same as the --host option
 
 Examples:
-  httpme -p 3000
+  httpme -p 4000
   httpme docs --auth admin:s3cr3t
   HTTPME_AUTH=admin:s3cr3t httpme docs  # same result as above
