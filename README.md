@@ -46,6 +46,9 @@ services:
       HTTPME_AUTH:
 ```
 
+See image on [DockerHub](https://hub.docker.com/r/dannyben/httpme) for
+additional details.
+
 ## Usage
 
 
