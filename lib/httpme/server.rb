@@ -1,5 +1,6 @@
 require 'rack'
 require 'rack/handler/puma'
+require 'httpme/index_redirector'
 
 module HTTPMe
   class Server
@@ -32,6 +33,7 @@ module HTTPMe
         end
 
         use Rack::Static, urls: ["/"], root: path, cascade: true, index: 'index.html'
+        use IndexRedirector, root: path
         run Rack::Directory.new(path)
       end
     end
