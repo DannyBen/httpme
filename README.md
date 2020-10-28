@@ -1,7 +1,7 @@
 # httpme - static web server with basic authentication
 
 [![Gem Version](https://badge.fury.io/rb/httpme.svg)](https://badge.fury.io/rb/httpme)
-[![Build Status](https://github.com/DannyBen/httpme/workflows/Test/badge.svg)](https://github.com/DannyBen/victor/actions?query=workflow%3ATest)
+[![Build Status](https://github.com/DannyBen/httpme/workflows/Test/badge.svg)](https://github.com/DannyBen/httpme/actions?query=workflow%3ATest)
 [![Maintainability](https://api.codeclimate.com/v1/badges/6626f32d6a99288dcc98/maintainability)](https://codeclimate.com/github/DannyBen/httpme/maintainability)
 
 ---
