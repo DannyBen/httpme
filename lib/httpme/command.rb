@@ -17,12 +17,12 @@ module HTTPMe
     option "-o, --host HOST", "Server host (default: 0.0.0.0)"
     option "-a, --auth AUTH", "Specify user:password to enable basic authentication"
 
-    environment 'HTTPME_PATH', "Same as --path"
-    environment 'HTTPME_AUTH', "Same as --auth"
-    environment 'HTTPME_PORT', "Same as --port"
-    environment 'HTTPME_HOST', "Same as --host"
+    environment 'HTTPME_PATH', "Same as the PATH argument"
+    environment 'HTTPME_AUTH', "Same as the --auth option"
+    environment 'HTTPME_PORT', "Same as the --port option"
+    environment 'HTTPME_HOST', "Same as the --host option"
 
-    example "httpme -p 3000"
+    example "httpme -p 4000"
     example "httpme docs --auth admin:s3cr3t"
     example "HTTPME_AUTH=admin:s3cr3t httpme docs  # same result as above"
 
