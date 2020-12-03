@@ -20,5 +20,5 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
   s.add_runtime_dependency 'colsole', '~> 0.7'
   s.add_runtime_dependency 'rack', '~> 2.2'
-  s.add_runtime_dependency 'puma', '~> 4.3'
+  s.add_runtime_dependency 'puma', '~> 5.1'
 end
