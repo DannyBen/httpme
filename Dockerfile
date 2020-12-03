@@ -1,5 +1,5 @@
 FROM dannyben/alpine-ruby:ruby2.6.5
-RUN gem install httpme --version 0.1.2
+RUN gem install httpme --version 0.1.3
 WORKDIR /docroot
 EXPOSE 3000
 ENTRYPOINT ["httpme"]
