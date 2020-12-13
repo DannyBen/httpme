@@ -11,7 +11,7 @@ module HTTPMe
     end
 
     def run
-      Rack::Handler::Puma.run(app, rack_options) do |server|
+      Rack::Handler::Puma.run(app, **rack_options) do |server|
         # :nocov: - FIXME: Can we test this?
         [:INT, :TERM].each do |sig|
           trap(sig) { server.stop }
