@@ -36,7 +36,6 @@ Or, with docker-compose:
 ```yaml
 services:
   web:
-    build: .
     image: dannyben/httpme
     volumes: [".:/docroot"]
     ports: ["3000:3000"]
