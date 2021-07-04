@@ -34,8 +34,6 @@ $ docker run --rm -it -p 3000:3000 -v $PWD:/docroot \
 Or, with docker-compose:
 
 ```yaml
-version: '3'
-
 services:
   web:
     build: .
