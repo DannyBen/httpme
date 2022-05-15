@@ -1,5 +1,6 @@
 require 'mister_bin'
 require 'colsole'
+require 'httpme/version'
 
 module HTTPMe
   class Command < MisterBin::Command
