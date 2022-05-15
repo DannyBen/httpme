@@ -1,10 +1,10 @@
-version: '3'
-
 services:
   web:
     build: .
     image: dannyben/httpme
-    volumes: [".:/docroot"]
-    ports: ["3000:3000"]
+    volumes:
+      - .:/docroot
+    ports:
+      - 3000:3000
     environment:
       HTTPME_AUTH:
