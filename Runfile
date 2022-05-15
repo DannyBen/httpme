@@ -1,6 +1,6 @@
 require "runfile-tasks"
 require "byebug"
-require_relative 'lib/httpme'
+require_relative 'lib/httpme/version'
 
 title   "HTTPMe Developer Toolbelt"
 summary "Runfile tasks for building the HTTPMe gem"
@@ -8,6 +8,7 @@ version HTTPMe::VERSION
 
 RunfileTasks::RubyGems.all 'httpme'
 RunfileTasks::Testing.rspec
+RunfileTasks::Docker.all 'dannyben/httpme', HTTPMe::VERSION
 
 help   "Run interactive console"
 action :console, :c do

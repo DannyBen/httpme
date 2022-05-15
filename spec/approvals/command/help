@@ -4,20 +4,23 @@ Options can be set using command line arguments or environment variables
 
 Usage:
   httpme [PATH] [--port PORT --host HOST --auth AUTH]
-  httpme (-h|--help)
+  httpme (-h|--help|--version)
 
 Options:
-  -p, --port PORT
+  -p --port PORT
     Server port (default: 3000)
 
-  -o, --host HOST
+  -o --host HOST
     Server host (default: 0.0.0.0)
 
-  -a, --auth AUTH
+  -a --auth AUTH
     Specify user:password to enable basic authentication
 
   -h --help
     Show this help
+
+  --version
+    Show version number
 
 Parameters:
   PATH
