@@ -1,2 +1,6 @@
 require 'httpme/server'
-require 'byebug' if ENV['BYEBUG']
+
+if ENV['BYEBUG']
+  require 'byebug'
+  require 'lp'
+end

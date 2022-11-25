@@ -2,19 +2,8 @@ require 'spec_helper'
 
 describe Server do
   let(:path) { 'spec/fixtures/docroot' }
-  let(:options) { { path: path } }
-
-  let(:app) do
-    server = HTTPMe::Server.new options
-    server.app
-  end
-
-  describe '#run' do
-    it 'starts puma' do
-      expect(Rack::Handler::Puma).to receive(:run)
-      subject.run
-    end
-  end
+  let(:auth) { nil }
+  let(:app) { described_class.setup path: path, auth: auth }
 
   describe '#app' do
     it 'is successful' do
@@ -32,31 +21,31 @@ describe Server do
     end
 
     context 'when the path is a directory but does not end with /' do
-      it 'redirects to path/' do
+      it 'serves nested index.html files' do
         get '/subdir'
-        expect(last_response).to be_redirection
-        expect(last_response.location).to eq '/subdir/'
+        expect(last_response).to be_ok
+        expect(last_response.body).to match(/<h1>Nested file also works/)
       end
     end
 
     context 'when the path is not found' do
-      it 'shows a friendly error' do
+      it 'shows a 404 Not Found' do
         get '/notfound'
         expect(last_response).to be_not_found
-        expect(last_response.body).to eq "Entity not found: /notfound\n"
+        expect(last_response.body).to eq '404 Not Found'
       end
     end
 
     context 'when the path is a directory without index.html' do
-      it 'shows a friendly error' do
+      it 'shows a 404 Not Found' do
         get '/css/'
         expect(last_response).to be_not_found
-        expect(last_response.body).to eq "Entity not found: /css/index.html\n"
+        expect(last_response.body).to eq '404 Not Found'
       end
     end
 
-    context 'with auth parameter' do
-      let(:options) { { path: path, auth: 'admin:s3cr3t' } }
+    context 'when auth is configured' do
+      let(:auth) { 'admin:s3cr3t' }
 
       context 'when unauthorized' do
         it 'blocks access' do

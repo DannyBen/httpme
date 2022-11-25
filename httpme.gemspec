@@ -18,11 +18,8 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'colsole', '~> 0.7'
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
   s.add_runtime_dependency 'puma', '>= 5.1'
-  # rack 3 is breaking tests, so we keep 2.x for now
-  #   ref: https://github.com/rack/rack/discussions/1977
-  #   ideally, we want this:
-  #   s.add_runtime_dependency 'rack', '>= 2.2', '< 4'
-  s.add_runtime_dependency 'rack', '~> 2.2'
+  s.add_runtime_dependency 'rack-contrib', '~> 2.3'
+  s.add_runtime_dependency 'sinatra', '~> 2.2'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end

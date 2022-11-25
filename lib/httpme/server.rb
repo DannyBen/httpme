@@ -1,50 +1,31 @@
-require 'rack'
-require 'rack/handler/puma'
-require 'httpme/index_redirector'
+require 'rack/contrib/try_static'
+require 'sinatra/base'
 
 module HTTPMe
-  class Server
-    attr_reader :options
+  class Server < Sinatra::Application
+    class << self
+      def setup(port: 3000, host: '0.0.0.0', path: '.', zone: 'Restricted Area', auth: nil)
+        reset!
 
-    def initialize(options = {})
-      @options = options
-    end
+        set :bind, host
+        set :port, port
+        set :server, %w[puma webrick]
 
-    def run
-      Rack::Handler::Puma.run(app, **rack_options) do |server|
-        # :nocov: - FIXME: Can we test this?
-        %i[INT TERM].each do |sig|
-          trap(sig) { server.stop }
-        end
-        # :nocov:
-      end
-    end
-
-    def app
-      path = options[:path] || '.'
-      auth = options[:auth]
-      zone = options[:zone] || 'Restricted Area'
-
-      Rack::Builder.new do
         if auth
           use Rack::Auth::Basic, zone do |username, password|
             auth.split(':') == [username, password]
           end
         end
 
-        use Rack::Static, urls: ['/'], root: path, cascade: true, index: 'index.html'
-        use IndexRedirector, root: path
-        run Rack::Directory.new(path)
+        not_found do
+          content_type :text
+          '404 Not Found'
+        end
+
+        use Rack::TryStatic, root: path, urls: %w[/], try: %w[.html index.html /index.html]
+
+        self
       end
-    end
-
-  private
-
-    def rack_options
-      {
-        Port: (options[:port] || '3000'),
-        Host: (options[:host] || '0.0.0.0'),
-      }
     end
   end
 end
