@@ -13,13 +13,13 @@ Gem::Specification.new do |s|
   s.executables = ['httpme']
   s.homepage    = 'https://github.com/dannyben/httpme'
   s.license     = 'MIT'
-  s.required_ruby_version = '>= 2.6.0'
+  s.required_ruby_version = '>= 2.7.0'
 
   s.add_runtime_dependency 'colsole', '~> 0.7'
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
-  s.add_runtime_dependency 'puma', '>= 5.1'
+  s.add_runtime_dependency 'puma', '~> 6.0'
   s.add_runtime_dependency 'rack-contrib', '~> 2.3'
-  s.add_runtime_dependency 'sinatra', '~> 2.2'
+  s.add_runtime_dependency 'sinatra', '~> 3.0'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end
