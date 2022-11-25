@@ -13,7 +13,7 @@ module HTTPMe
     def run
       Rack::Handler::Puma.run(app, **rack_options) do |server|
         # :nocov: - FIXME: Can we test this?
-        [:INT, :TERM].each do |sig|
+        %i[INT TERM].each do |sig|
           trap(sig) { server.stop }
         end
         # :nocov:
@@ -32,7 +32,7 @@ module HTTPMe
           end
         end
 
-        use Rack::Static, urls: ["/"], root: path, cascade: true, index: 'index.html'
+        use Rack::Static, urls: ['/'], root: path, cascade: true, index: 'index.html'
         use IndexRedirector, root: path
         run Rack::Directory.new(path)
       end
@@ -46,6 +46,5 @@ module HTTPMe
         Host: (options[:host] || '0.0.0.0'),
       }
     end
-
   end
 end

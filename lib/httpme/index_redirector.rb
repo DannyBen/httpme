@@ -9,7 +9,7 @@ module HTTPMe
       path_info = Rack::Utils.unescape env['PATH_INFO']
       path = File.join @root, path_info
 
-      if File.directory?(path) and !path_info.end_with? '/'
+      if File.directory?(path) && !path_info.end_with?('/')
         return [302, { 'Location' => "#{env['PATH_INFO']}/" }, []]
       end
 

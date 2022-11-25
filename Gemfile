@@ -1,11 +1,11 @@
-source "https://rubygems.org"
+source 'https://rubygems.org'
 
 gem 'byebug'
+gem 'rack-test'
 gem 'rspec'
 gem 'rspec_approvals'
 gem 'runfile'
 gem 'runfile-tasks'
 gem 'simplecov'
-gem 'rack-test'
 
 gemspec
