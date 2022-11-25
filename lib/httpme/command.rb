@@ -36,8 +36,8 @@ module HTTPMe
 
       raise ArgumentError, "Path not found [#{path}]" unless Dir.exist? path
 
-      server = Server.new path: path, host: host, port: port, auth: auth
-      server.run
+      Server.setup path: path, host: host, port: port, auth: auth
+      Server.run!
     end
   end
 end

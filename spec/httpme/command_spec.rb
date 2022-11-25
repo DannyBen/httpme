@@ -1,17 +1,13 @@
 require 'spec_helper'
 
 describe Command do
-  subject { CLI.router }
-
-  let(:mock_server) { Class.new { def run; end }.new }
-
   context 'without arguments' do
     let(:default_options) { { path: '.', port: 3000, host: '0.0.0.0', auth: nil } }
 
     it 'runs the server with default options' do
-      allow(Server).to receive(:new).with(default_options).and_return mock_server
-      expect(mock_server).to receive(:run)
-      subject.run
+      expect(Server).to receive(:setup).with(default_options)
+      expect(Server).to receive(:run!)
+      subject.execute
     end
   end
 
@@ -19,9 +15,9 @@ describe Command do
     let(:options) { { path: 'spec', port: 4000, host: '127.0.0.1', auth: 'me:secret' } }
 
     it 'runs the server with requested options' do
-      allow(Server).to receive(:new).with(options).and_return mock_server
-      expect(mock_server).to receive(:run)
-      subject.run %w[spec --port 4000 --host 127.0.0.1 --auth me:secret]
+      expect(Server).to receive(:setup).with(options)
+      expect(Server).to receive(:run!)
+      subject.execute %w[spec --port 4000 --host 127.0.0.1 --auth me:secret]
     end
   end
 
@@ -42,21 +38,22 @@ describe Command do
     end
 
     it 'runs the server with requested options' do
-      allow(Server).to receive(:new).with(options).and_return mock_server
-      expect(mock_server).to receive(:run)
-      subject.run
+      expect(Server).to receive(:setup).with(options)
+      expect(Server).to receive(:run!)
+      subject.execute
     end
   end
 
   context 'with invalid path' do
     it 'raises an error' do
-      expect { subject.run %w[invalid-path] }.to raise_error(ArgumentError, 'Path not found [invalid-path]')
+      expect { subject.execute %w[invalid-path] }
+        .to raise_error(ArgumentError, 'Path not found [invalid-path]')
     end
   end
 
   context 'with --help' do
     it 'shows long usage' do
-      expect { subject.run %w[--help] }.to output_approval('command/help')
+      expect { subject.execute %w[--help] }.to output_approval('command/help')
     end
   end
 end
