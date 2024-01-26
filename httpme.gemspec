@@ -20,7 +20,7 @@ Gem::Specification.new do |s|
   s.add_runtime_dependency 'mister_bin', '~> 0.7'
   s.add_runtime_dependency 'puma', '>= 5.6', '< 7.0'
   s.add_runtime_dependency 'rack-contrib', '~> 2.3'
-  s.add_runtime_dependency 'sinatra', '~> 3.0'
+  s.add_runtime_dependency 'sinatra', '>= 3.0', '< 5'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end
