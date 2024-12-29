@@ -11,6 +11,10 @@ module HTTPMe
         set :port, port
         set :server, %w[puma webrick]
 
+        # FIXME: Ironically, tests fail without this line
+        # ref: https://community.fly.io/t/attack-prevented-by-rack-hostauthorization/22992
+        set :environment, :production
+
         if auth
           use Rack::Auth::Basic, zone do |username, password|
             auth.split(':') == [username, password]
