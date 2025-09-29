@@ -1,6 +1,6 @@
-FROM dannyben/alpine-ruby:3.1.3
+FROM dannyben/alpine-ruby:3.3.3
 
-RUN gem install httpme --version 0.2.2
+RUN gem install httpme --version 0.2.3
 
 WORKDIR /docroot
 

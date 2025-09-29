@@ -21,6 +21,7 @@ Gem::Specification.new do |s|
   s.add_dependency 'puma', '>= 5.6', '< 7.0'
   s.add_dependency 'rack-contrib', '~> 2.3'
   s.add_dependency 'sinatra', '>= 3.0', '< 5'
+  s.add_dependency 'rackup', '~> 2.2'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end
