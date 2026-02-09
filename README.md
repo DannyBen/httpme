@@ -1,5 +1,7 @@
 # httpme - static web server with basic authentication
 
+![repocard](https://repocard.dannyben.com/svg/httpme.svg)
+
 httpme is a command line utility for serving static HTMLs and other files
 with optional basic authentication support.
 
