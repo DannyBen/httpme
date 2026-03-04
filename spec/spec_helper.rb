@@ -15,6 +15,7 @@ include HTTPMe
 # Bootstrap rack app for rspec
 module RSpecMixin
   include Rack::Test::Methods
+
   def app
     Server
   end
