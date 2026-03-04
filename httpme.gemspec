@@ -14,14 +14,14 @@ Gem::Specification.new do |s|
   s.homepage    = 'https://github.com/dannyben/httpme'
   s.license     = 'MIT'
 
-  s.required_ruby_version = '>= 3.1'
+  s.required_ruby_version = '>= 3.2'
 
-  s.add_dependency 'colsole', '>= 0.8.1', '< 2'
+  s.add_dependency 'colsole', '~> 1.0'
   s.add_dependency 'mister_bin', '~> 0.7'
-  s.add_dependency 'puma', '>= 5.6', '< 7.0'
+  s.add_dependency 'puma', '~> 7.2'
   s.add_dependency 'rack-contrib', '~> 2.3'
-  s.add_dependency 'sinatra', '>= 3.0', '< 5'
   s.add_dependency 'rackup', '~> 2.2'
+  s.add_dependency 'sinatra', '~> 4.2'
 
   s.metadata['rubygems_mfa_required'] = 'true'
 end
