@@ -18,7 +18,7 @@ Gem::Specification.new do |s|
 
   s.add_dependency 'colsole', '~> 1.0'
   s.add_dependency 'mister_bin', '~> 0.7'
-  s.add_dependency 'puma', '~> 7.2'
+  s.add_dependency 'puma', '~> 8.0'
   s.add_dependency 'rack-contrib', '~> 2.3'
   s.add_dependency 'rackup', '~> 2.2'
   s.add_dependency 'sinatra', '~> 4.2'
